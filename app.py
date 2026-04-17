@@ -291,6 +291,7 @@ if st.session_state.extracted_images:
         
         with cols[col_idx]:
             try:
-                st.image(img_path, use_container_width=True, caption=os.path.basename(img_path))
+                #st.image(img_path, use_container_width=True, caption=os.path.basename(img_path))
+                st.image(img_path, width=300, caption=os.path.basename(img_path))
             except Exception as e:
                 st.error(f"Error displaying image: {str(e)}")
