@@ -4,15 +4,6 @@ from pathlib import Path
 
 
 def extract_text(pdf_input):
-    """
-    Extract all text from a PDF file.
-    
-    Args:
-        pdf_input: File path (str) or file-like object (UploadedFile)
-    
-    Returns:
-        str: Combined text from all pages
-    """
     try:
         # Handle both file paths and Streamlit uploaded files
         if isinstance(pdf_input, str):
@@ -34,16 +25,6 @@ def extract_text(pdf_input):
 
 
 def extract_images(pdf_input, output_folder="images"):
-    """
-    Extract all images from a PDF file.
-    
-    Args:
-        pdf_input: File path (str) or file-like object (UploadedFile)
-        output_folder: Folder to save extracted images
-    
-    Returns:
-        list: Paths to extracted image files
-    """
     try:
         os.makedirs(output_folder, exist_ok=True)
         
@@ -87,30 +68,10 @@ def extract_images(pdf_input, output_folder="images"):
 
 
 def combine_texts(text1, text2, separator="\n\n" + "="*80 + "\n\n"):
-    """
-    Combine two text strings with a clear separator.
-    
-    Args:
-        text1: First text content
-        text2: Second text content
-        separator: Separator between texts
-    
-    Returns:
-        str: Combined text
-    """
     return f"{text1}{separator}{text2}"
 
 
 def clean_text(text):
-    """
-    Clean extracted text by removing excessive whitespace.
-    
-    Args:
-        text: Raw text from PDF
-    
-    Returns:
-        str: Cleaned text
-    """
     # Remove excessive newlines
     lines = text.split('\n')
     cleaned_lines = [line.strip() for line in lines if line.strip()]
