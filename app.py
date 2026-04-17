@@ -249,7 +249,8 @@ if st.session_state.generated_report:
     st.subheader("📊 Generated DDR Report")
     
     # Display report
-    with st.container(border=True):
+    #with st.container(border=True):
+    with st.container():
         st.markdown(st.session_state.generated_report)
     
     # Copy button and download options
